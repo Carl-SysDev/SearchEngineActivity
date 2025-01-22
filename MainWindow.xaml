@@ -58,14 +58,14 @@
         <Button Name ="UploadButton" Grid.Column="3" Content="Upload" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="130" Height="39" Background="#4CAF50" Foreground="#FFFFFF" Click="UploadButton_Click" />
 
         <!-- SEARCH RESULT-->
-        <ListBox Name="SearchResultsListBox" Grid.Column="2" Grid.Row="3">
+        <ListBox Name="SearchResultsListBox" Grid.Column="1" Grid.Row="3" Margin="0,34,0,0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding CompanyName, StringFormat='Company Name: {0}'}" />
-                        <TextBlock Text="{Binding SecNum, StringFormat='SEC #: {0}'}" />
+                        <TextBlock Text="{Binding CompanyName}"  FontSize="20" />
+                        <!--<TextBlock Text="{Binding SecNum, StringFormat='SEC #: {0}'}" />
                         <TextBlock Text="{Binding DateRegistered, StringFormat='Date Registered: {0}'}" />
-                        <TextBlock Text="{Binding LicenseNumber, StringFormat='License Number: {0}'}" />
+                        <TextBlock Text="{Binding LicenseNumber, StringFormat='License Number: {0}'}" />-->
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -83,5 +83,24 @@
                 <ImageBrush ImageSource="/images-removebg-preview.png" />
             </Image.OpacityMask>
         </Image>
+        <!--RESULT HEADER-->
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULT:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
+        <!--RESULT HEADER-->
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="32,27,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Company Name :" VerticalAlignment="Top" Height="23" Width="134" FontSize="15" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="32,89,0,0" Grid.Row="3" TextWrapping="Wrap" Text="SEC # : " VerticalAlignment="Top" Height="24" Width="66"  FontSize="15" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="32,118,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Licensed # :" VerticalAlignment="Top" Height="24" Width="88"  FontSize="15" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="32,152,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Date Registered :" VerticalAlignment="Top" Height="28" Width="134"  FontSize="15" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="300,27,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Violations :" VerticalAlignment="Top" Height="24" Width="66"  FontSize="15" FontWeight="Bold" />
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="159,27,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Height="51" />
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="87,92,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="192" />
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="120,120,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="159" />
+        <TextBox Grid.Column="2" HorizontalAlignment="Left" Margin="159,152,0,0" Grid.Row="3" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
+        <RichTextBox Grid.Column="2" Grid.Row="3" Margin="300,59,25,70">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="RichTextBox" />
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
     </Grid>
 </Window>

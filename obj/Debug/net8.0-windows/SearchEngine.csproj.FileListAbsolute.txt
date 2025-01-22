@@ -18,3 +18,4 @@ C:\Users\csmadriaga\source\repos\SearchEngine\obj\Debug\net8.0-windows\refint\Se
 C:\Users\csmadriaga\source\repos\SearchEngine\obj\Debug\net8.0-windows\SearchEngine.pdb
 C:\Users\csmadriaga\source\repos\SearchEngine\obj\Debug\net8.0-windows\SearchEngine.genruntimeconfig.cache
 C:\Users\csmadriaga\source\repos\SearchEngine\obj\Debug\net8.0-windows\ref\SearchEngine.dll
+C:\Users\csmadriaga\source\repos\SearchEngine\obj\Debug\net8.0-windows\SearchEngine.sourcelink.json

@@ -12,17 +12,17 @@ namespace SearchEngine
         public string SecNum { get; set; }
         public string DateRegistered { get; set; }
         public string LicenseNumber { get; set; }
-        //public string TaxpayerName { get; set; }
-        //public string? Vioalion { get; set; }
+        public string TaxpayerName { get; set; }
+        public string? Violation { get; set; }
 
-        public Company(string companyName, string secNum, string dateRegistered, string licenseNumber)
+        public Company(string companyName, string secNum, string licenseNumber, string dateRegistered, string taxpayerName, string violation)
         {
             CompanyName = companyName;
             SecNum = secNum;
             DateRegistered = dateRegistered;
             LicenseNumber = licenseNumber;
-            //TaxpayerName = taxpayerName;
-            //Vioalion = vioalion;
+            TaxpayerName = taxpayerName;
+            Violation = violation;
         }
     }
 }

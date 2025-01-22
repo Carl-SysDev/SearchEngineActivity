@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 
 //USE THIS IMPORT TO SHOW OPEN FILE DIALOG FOR UPLOAD
 using Microsoft.Win32;
+using System.IO;
 
 namespace SearchEngine
 {
@@ -29,13 +30,22 @@ namespace SearchEngine
 
             //CREATE A LIST OF COMPANIES
             companies = new List<Company>
-            { new Company("Microsoft", "123456789", "01/01/2000", "123456"),
-              new Company("Google", "987654321", "02/02/2001", "987654"),
-              new Company("Apple", "456789123", "03/03/2002", "456789"),
-              new Company("Amazon", "321654987", "04/04/2003", "321654"),
-              new Company("SSCGI", "329354987", "02/04/2013", "321754"),
-              new Company("SSS", "311354987", "04/08/2010", "331654"),
-              new Company("PagIbig", "321554987", "12/21/2015", "921654")
+            {
+            //  new Company("Microsoft", "123456789", "01/01/2000", "123456"),
+            //  new Company("Google", "987654321", "02/02/2001", "987654"),
+            //  new Company("Apple", "456789123", "03/03/2002", "456789"),
+            //  new Company("Amazon", "321654987", "04/04/2003", "321654"),
+            //  new Company("SSCGI", "329354987", "02/04/2013", "321754"),
+            //  new Company("SSS", "311354987", "04/08/2010", "331654"),
+            //  new Company("PagIbig", "321554987", "12/21/2015", "921654")
+
+                new Company( "Microsoft", "123456789","123456", "01/01/2000", "Satya Nadella", "None" ),
+                new Company( "Google", "987654321", "987654", "02/02/2001", "Sundar Pichai", "None" ),
+                new Company( "Apple", "456789123", "456789", "03/03/2002", "Tim Cook", "None" ),
+                new Company( "Amazon", "321654987", "321654", "04/04/2003", "Jeff Bezos", "None" ),
+                new Company( "SSCGI", "329354987", "321754", "02/04/2013", "Joey Mamaril", "None" ),
+                new Company( "SSS", "311354987", "331654", "04/08/2010", "Joey Mamaril", "None" ),
+                new Company( "PagIbig", "321554987", "921654", "12/21/2015", "Joey Mamaril", "None" )
             };
         }
 
