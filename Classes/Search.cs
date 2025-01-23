@@ -24,7 +24,7 @@ namespace SearchEngine
             switch (SearchType)
             {
                 case "Company Name":
-                    searchResults = companies.Where(c => c.CompanyName.Contains(SearchText)).ToList();
+                    searchResults = companies.Where(c => c.CompanyName.ToLower().Contains(SearchText.ToLower())).ToList();
                     break;
 
                 case "SEC #":
