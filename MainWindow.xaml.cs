@@ -83,11 +83,13 @@ namespace SearchEngine
             if (SearchResultsListBox.Items.Count == 0)
             {
                 MessageBox.Show("No results found for your search.", "No Results Found", MessageBoxButton.OK, MessageBoxImage.Information);
+                //IF NO RESUT FOUND STILL SHOW ALL AVAILABLE COMPANIES
+                SearchResultsListBox.ItemsSource = companies;
             }
-            else
-            {
-                NoResultTextBlock.Visibility = Visibility.Collapsed;
-            }
+            //else
+            //{
+            //    NoResultTextBlock.Visibility = Visibility.Collapsed;
+            //}
         }
 
         //PLACEHOLDER IF CLICK

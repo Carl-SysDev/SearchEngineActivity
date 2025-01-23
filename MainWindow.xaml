@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SearchEngine"
         mc:Ignorable="d"
-        Title="Company Search" Height="450" Width="800">
+        Title="Company Search" Height="450" Width="800" ResizeMode="NoResize">
     <Window.Background>
         <SolidColorBrush Color="#FFEC9E" />
     </Window.Background>
@@ -106,24 +106,27 @@
         <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,1,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULT:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
 
         <!--SINGLE COMPANT INFO-->
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="31,33,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Company Name :" VerticalAlignment="Top" Height="23" Width="143" FontSize="17" FontWeight="Bold" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="104,73,0,0" Grid.Row="3" TextWrapping="Wrap" Text="  SEC # : " VerticalAlignment="Top" Height="24" Width="70"  FontSize="17" FontWeight="Bold" RenderTransformOrigin="0.227,0.668" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="66,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="  Licensed # :" VerticalAlignment="Top" Height="24" Width="108"  FontSize="17" FontWeight="Bold" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="31,142,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Date Registered :" VerticalAlignment="Top" Height="28" Width="143"  FontSize="17" FontWeight="Bold" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="320,73,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Violations :" VerticalAlignment="Top" Height="24" Width="104"  FontSize="17" FontWeight="Bold" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="31,175,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Tax Payer Name :" VerticalAlignment="Top" Height="28" Width="143"  FontSize="17" FontWeight="Bold" />
-        <TextBox Name="CompanyName" Grid.Column="2" HorizontalAlignment="Left" Margin="183,28,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="271" Height="35" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="SecNum" Grid.Column="2" HorizontalAlignment="Left" Margin="183,71,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="LicenseNumber" Grid.Column="2" HorizontalAlignment="Left" Margin="183,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="DateRegistered" Grid.Column="2" HorizontalAlignment="Left" Margin="183,142,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="TaxPayerName" Grid.Column="2" HorizontalAlignment="Left" Margin="183,175,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="Violations" Grid.Column="2" HorizontalAlignment="Left" Margin="320,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="96" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
         <!--ADS INFO FREE SPACE POR FUTUTE UPDATE-->
         <Image Grid.Column="3" HorizontalAlignment="Left" Height="214" Margin="6,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="132" Source="/shopee_8_8_sale_product_intro_3_b1dbd75738.png" Stretch="Fill">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/shopee_8_8_sale_product_intro_3_b1dbd75738.png" />
             </Image.OpacityMask>
         </Image>
+
+        <!--Company INfo -->
         <Rectangle Grid.Column="2" HorizontalAlignment="Center" Height="249" Grid.Row="3" Stroke="#FFED9455" VerticalAlignment="Center" Width="460" StrokeThickness="5" />
+
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="21,35,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Company Name :" VerticalAlignment="Top" Height="23" Width="143" FontSize="17" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="94,75,0,0" Grid.Row="3" TextWrapping="Wrap" Text="  SEC # : " VerticalAlignment="Top" Height="24" Width="70"  FontSize="17" FontWeight="Bold" RenderTransformOrigin="0.227,0.668" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="56,109,0,0" Grid.Row="3" TextWrapping="Wrap" Text="  Licensed # :" VerticalAlignment="Top" Height="24" Width="108"  FontSize="17" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="21,144,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Date Registered :" VerticalAlignment="Top" Height="28" Width="143"  FontSize="17" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="310,75,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Violations :" VerticalAlignment="Top" Height="24" Width="104"  FontSize="17" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="21,177,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Tax Payer Name :" VerticalAlignment="Top" Height="28" Width="143"  FontSize="17" FontWeight="Bold" />
+        <TextBox x:Name="CompanyName" Grid.Column="2" HorizontalAlignment="Left" Margin="166,30,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278" Height="35" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox x:Name="SecNum" Grid.Column="2" HorizontalAlignment="Center" Margin="0,73,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox x:Name="LicenseNumber" Grid.Column="2" HorizontalAlignment="Center" Margin="0,109,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox x:Name="DateRegistered" Grid.Column="2" HorizontalAlignment="Center" Margin="0,144,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox x:Name="TaxPayerName" Grid.Column="2" HorizontalAlignment="Center" Margin="0,177,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox x:Name="Violations" Grid.Column="2" HorizontalAlignment="Left" Margin="310,109,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="96" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
     </Grid>
 </Window>
