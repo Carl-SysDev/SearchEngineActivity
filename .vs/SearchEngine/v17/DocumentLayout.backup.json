@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\classes\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:classes\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,20 +34,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Company.cs",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Company.cs",
               "RelativeDocumentMoniker": "Classes\\Company.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Company.cs",
               "RelativeToolTip": "Classes\\Company.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAuwAwAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAIA1wBUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T04:56:01.682Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Search.cs",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Search.cs",
               "RelativeDocumentMoniker": "Classes\\Search.cs",
@@ -60,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -72,13 +72,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAswC8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADIAAAAAAAAAAAASwC8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T00:59:52.593Z",
               "EditorCaption": ""

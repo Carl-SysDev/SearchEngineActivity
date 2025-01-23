@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="Company Search" Height="450" Width="800">
     <Window.Background>
-        <SolidColorBrush Color="#96CEB4" />
+        <SolidColorBrush Color="#FFEC9E" />
     </Window.Background>
+
     <Grid x:Name="hover">
         <!-- Background Rectangle -->
         <!-- <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#5D8736" Opacity="0.8" />-->
@@ -31,10 +32,13 @@
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
+        <Rectangle Grid.Row="1" Grid.ColumnSpan="5" Fill="#ED9455" />
+        <Rectangle Grid.Row="0" Grid.ColumnSpan="5" Fill="#ED9455" />
+
         <!-- COMPONENTS -->
 
         <!-- DROPDOWN -->
-        <ComboBox Name="DropBox" Grid.Column="1" HorizontalAlignment="Center" Margin="0,12,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Height="37" SelectedIndex="0" Background="Black" BorderBrush="#FFACACAC" />
+        <ComboBox Name="DropBox" Grid.Column="1" HorizontalAlignment="Center" Margin="0,12,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Height="37" SelectedIndex="0" Background="Black" BorderBrush="#ED9455" />
         <!-- SEARCH -->
         <Border
         BorderThickness="2"
@@ -48,8 +52,8 @@
             <TextBox Name="SearchBox"
              TextWrapping="Wrap"
              Text="Search..."
-             Foreground="Black"
-             FontWeight="Bold"
+             Foreground="DarkSlateGray"
+
              FontSize="25"
              HorizontalAlignment="Stretch"
              VerticalAlignment="Center"
@@ -60,7 +64,7 @@
         </Border>
 
         <!-- SEARCH BUTTON -->
-        <Button Name="SearchButton" Grid.Column="3" Content="🔍 SEARCH" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="130" Height="50" Foreground="Black" FontWeight="Bold"  FontSize="15" Click="SearchButton_Click" BorderBrush="#00000000" Margin="0,5,0,0">
+        <Button Name="SearchButton" Grid.Column="3" Content="🔍 SEARCH" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="130" Height="50" Foreground="Black" FontWeight="Bold"  FontSize="15" Click="SearchButton_Click" BorderBrush="#00000000" Margin="0,5,0,0" Cursor="Hand">
             <Button.Background>
                 <ImageBrush ImageSource="/pngegg.PNG" Stretch="Uniform" />
             </Button.Background>
@@ -68,7 +72,7 @@
         <!-- HEADER -->
         <TextBlock Name="CompanyHeader" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Text, ElementName=SearchBox}" VerticalAlignment="Center" Height="39" Width="Auto" FontSize="30" FontWeight="Bold" Foreground="Black" />
         <!-- UPLOAD -->
-        <Button Name ="UploadButton" Grid.Column="3" Content="       UPLOAD" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="125" Height="50" FontSize="15" FontWeight="Bold" Foreground="Black" Click="UploadButton_Click" Margin="10,0,0,0" BorderBrush="#00000000">
+        <Button Name ="UploadButton" Grid.Column="3" Content="       UPLOAD" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="125" Height="50" FontSize="15" FontWeight="Bold" Foreground="Black" Click="UploadButton_Click" Margin="10,0,0,0" BorderBrush="#00000000" Cursor="Hand">
 
             <Button.Background>
                 <ImageBrush ImageSource="/pngegg.PNG" />
@@ -76,7 +80,7 @@
         </Button>
 
         <!-- SEARCH RESULT-->
-        <ListBox Name="SearchResultsListBox" Grid.Column="1" Grid.Row="3" Margin="0,34,0,0" SelectionChanged="SearchResultsListBox_SelectionChanged" Background="#FFFFB163" BorderBrush="#FFF87F07">
+        <ListBox Name="SearchResultsListBox" Grid.Row="3" Margin="0,28,10,0" SelectionChanged="SearchResultsListBox_SelectionChanged" BorderBrush="#FFF87F07" Grid.Column="1" BorderThickness="1,1,1,1" Background="#FFFFB163">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -90,10 +94,7 @@
         </ListBox>
         <TextBlock Name="NoResultTextBlock" Visibility="Collapsed" Grid.Column="1" Grid.Row="3" Margin="0,34,0,0" Text="No result found" />
         <!--LOGO-->
-        <Image Grid.Column="1" HorizontalAlignment="Center" Height="81" Margin="0,5,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="102" Source="/letter-c-and-circles4612.logowik.com.png">
-            <Image.Clip>
-                <EllipseGeometry RadiusX="50" RadiusY="50" Center="50,50" />
-            </Image.Clip>
+        <Image Grid.Column="1" HorizontalAlignment="Center" Height="70" Margin="0,5,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="70" Source="/image-removebg-preview (2).png">
         </Image>
         <!--UPLoAD ICON-->
         <Image Grid.Column="3" HorizontalAlignment="Left" Height="26" Margin="29,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="32" Source="/icons8-upload-64.png">
@@ -102,25 +103,27 @@
             </Image.OpacityMask>
         </Image>
         <!--RESULT HEADER-->
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,7,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULT:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,1,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULT:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
 
         <!--SINGLE COMPANT INFO-->
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,33,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Company Name :" VerticalAlignment="Top" Height="23" Width="173" FontSize="17" FontWeight="Bold" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,73,0,0" Grid.Row="3" TextWrapping="Wrap" Text="SEC # : " VerticalAlignment="Top" Height="24" Width="66"  FontSize="17" FontWeight="Bold" RenderTransformOrigin="0.227,0.668" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="11,111,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Licensed # :" VerticalAlignment="Top" Height="24" Width="104"  FontSize="17" FontWeight="Bold" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,142,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Date Registered :" VerticalAlignment="Top" Height="28" Width="168"  FontSize="17" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="31,33,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Company Name :" VerticalAlignment="Top" Height="23" Width="143" FontSize="17" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="104,73,0,0" Grid.Row="3" TextWrapping="Wrap" Text="  SEC # : " VerticalAlignment="Top" Height="24" Width="70"  FontSize="17" FontWeight="Bold" RenderTransformOrigin="0.227,0.668" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="66,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="  Licensed # :" VerticalAlignment="Top" Height="24" Width="108"  FontSize="17" FontWeight="Bold" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="31,142,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Date Registered :" VerticalAlignment="Top" Height="28" Width="143"  FontSize="17" FontWeight="Bold" />
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="320,73,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Violations :" VerticalAlignment="Top" Height="24" Width="104"  FontSize="17" FontWeight="Bold" />
-        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="10,175,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Tax Payer Name :" VerticalAlignment="Top" Height="28" Width="168"  FontSize="17" FontWeight="Bold" />
-        <TextBox Name="CompanyName" Grid.Column="2" HorizontalAlignment="Left" Margin="159,27,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="295" Height="35" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="SecNum" Grid.Column="2" HorizontalAlignment="Left" Margin="76,71,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="230" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="LicenseNumber" Grid.Column="2" HorizontalAlignment="Left" Margin="120,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="DateRegistered" Grid.Column="2" HorizontalAlignment="Left" Margin="159,143,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="TaxPayerName" Grid.Column="2" HorizontalAlignment="Left" Margin="159,177,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="147" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-        <TextBox Name="Violations" Grid.Column="2" HorizontalAlignment="Left" Margin="320,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="105" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="31,175,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Tax Payer Name :" VerticalAlignment="Top" Height="28" Width="143"  FontSize="17" FontWeight="Bold" />
+        <TextBox Name="CompanyName" Grid.Column="2" HorizontalAlignment="Left" Margin="183,28,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="271" Height="35" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox Name="SecNum" Grid.Column="2" HorizontalAlignment="Left" Margin="183,71,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox Name="LicenseNumber" Grid.Column="2" HorizontalAlignment="Left" Margin="183,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox Name="DateRegistered" Grid.Column="2" HorizontalAlignment="Left" Margin="183,142,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox Name="TaxPayerName" Grid.Column="2" HorizontalAlignment="Left" Margin="183,175,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <TextBox Name="Violations" Grid.Column="2" HorizontalAlignment="Left" Margin="320,107,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="96" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+        <!--ADS INFO FREE SPACE POR FUTUTE UPDATE-->
         <Image Grid.Column="3" HorizontalAlignment="Left" Height="214" Margin="6,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="132" Source="/shopee_8_8_sale_product_intro_3_b1dbd75738.png" Stretch="Fill">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/shopee_8_8_sale_product_intro_3_b1dbd75738.png" />
             </Image.OpacityMask>
         </Image>
+        <Rectangle Grid.Column="2" HorizontalAlignment="Center" Height="249" Grid.Row="3" Stroke="#FFED9455" VerticalAlignment="Center" Width="460" StrokeThickness="5" />
     </Grid>
 </Window>
