@@ -80,7 +80,7 @@
         </Button>
 
         <!-- SEARCH RESULT-->
-        <ListBox Name="SearchResultsListBox" Grid.Row="3" Margin="0,28,10,0" SelectionChanged="SearchResultsListBox_SelectionChanged" BorderBrush="#FFF87F07" Grid.Column="1" BorderThickness="1,1,1,1" Background="#FFFFB163">
+        <ListBox Name="SearchResultsListBox" Grid.Row="3" Margin="0,28,10,0" SelectionChanged="SearchResultsListBox_SelectionChanged"  Grid.Column="1" BorderThickness="1,1,1,1" Background="#FFFFB163" BorderBrush="#FFF87F07">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -103,15 +103,15 @@
             </Image.OpacityMask>
         </Image>
         <!--RESULT HEADER-->
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="0,1,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULT:" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="32,1,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULTS" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" />
 
         <!--SINGLE COMPANT INFO-->
-        <!--ADS INFO FREE SPACE POR FUTUTE UPDATE-->
+        <!--ADS INFO FREE SPACE POR FUTUTE UPDATE
         <Image Grid.Column="3" HorizontalAlignment="Left" Height="214" Margin="6,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="132" Source="/shopee_8_8_sale_product_intro_3_b1dbd75738.png" Stretch="Fill">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/shopee_8_8_sale_product_intro_3_b1dbd75738.png" />
             </Image.OpacityMask>
-        </Image>
+        </Image>-->
 
         <!--Company INfo -->
         <Rectangle Grid.Column="2" HorizontalAlignment="Center" Height="249" Grid.Row="3" Stroke="#FFED9455" VerticalAlignment="Center" Width="460" StrokeThickness="5" />
@@ -128,5 +128,15 @@
         <TextBox x:Name="DateRegistered" Grid.Column="2" HorizontalAlignment="Center" Margin="0,144,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
         <TextBox x:Name="TaxPayerName" Grid.Column="2" HorizontalAlignment="Center" Margin="0,177,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="26" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
         <TextBox x:Name="Violations" Grid.Column="2" HorizontalAlignment="Left" Margin="310,109,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="96" FontSize="17" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+
+        <!-- UPLOADS FILES-->
+        <ListBox Name="FileUploads" Grid.Column="3" Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}" Height="217" VerticalAlignment="Top" Margin="6,28,10,0" BorderThickness="1,1,1,1" Background="#FFFFB163" BorderBrush="#FFF87F07" SelectionChanged="FileUploads_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontSize="15" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Name="uploads" Grid.Column="3" HorizontalAlignment="Left" Margin="29,1,0,0" Grid.Row="3" TextWrapping="Wrap" Text="UPLOADS" VerticalAlignment="Top"  FontSize="20" FontWeight="Bold" />
     </Grid>
 </Window>
