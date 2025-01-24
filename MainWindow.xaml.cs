@@ -14,6 +14,9 @@ namespace SearchEngine
 {
     public partial class MainWindow : Window
     {
+        //PROPERT FOR SEARCH RESULT COUNT
+        public string SearchResultCount { get; set; }
+
         //DECLARE COMPANY CLASS PARA MAGAMIT SA BUONG CLASS
         private List<Company> companies;
 
@@ -81,6 +84,11 @@ namespace SearchEngine
                 Console.WriteLine($"Date Registered: {company.DateRegistered}");
                 Console.WriteLine($"License Number: {company.LicenseNumber}");
             }
+
+            //GET HOW MANT SEARCH FOUND AND CONVERT IT TO StrING
+            SearchResultCount = searchResults.Count.ToString();
+
+            ResultFound.Text = "RESULTS: " + SearchResultCount;
 
             //DISPLAY THE SEARCH RESULTS
             SearchResultsListBox.ItemsSource = searchResults;

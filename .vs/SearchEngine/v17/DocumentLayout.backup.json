@@ -40,10 +40,9 @@
               "RelativeDocumentMoniker": "Classes\\Company.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Company.cs",
               "RelativeToolTip": "Classes\\Company.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAArwBUAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAArwBkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T04:56:01.682Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T04:56:01.682Z"
             },
             {
               "$type": "Document",
@@ -53,10 +52,9 @@
               "RelativeDocumentMoniker": "Classes\\Search.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Search.cs",
               "RelativeToolTip": "Classes\\Search.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAIAwwBoAAABxAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvyYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T04:54:32.669Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T04:54:32.669Z"
             },
             {
               "$type": "Document",
@@ -76,9 +74,9 @@
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAgwIoAAABGAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "MainWindow.xaml.cs*",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAwwFoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T00:59:52.593Z",
               "EditorCaption": ""
