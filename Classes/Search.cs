@@ -27,8 +27,8 @@ namespace SearchEngine
                     searchResults = companies.Where(c => c.CompanyName.ToLower().Contains(SearchText.ToLower())).ToList();
                     break;
 
-                case "SEC #":
-                    searchResults = companies.Where(c => c.SecNum.Contains(SearchText)).ToList();
+                case "Tax Payer's Name":
+                    searchResults = companies.Where(c => c.TaxpayerName.ToLower().Contains(SearchText.ToLower())).ToList();
                     break;
 
                 default:

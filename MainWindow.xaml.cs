@@ -9,6 +9,7 @@ using System.Collections.ObjectModel;
 using Microsoft.Win32;
 using System.IO;
 using OfficeOpenXml;
+using System.DirectoryServices;
 
 namespace SearchEngine
 {
@@ -26,7 +27,7 @@ namespace SearchEngine
 
             List<string> dropdown = new List<string>();
             dropdown.Add("Company Name");
-            dropdown.Add("SEC #");
+            dropdown.Add("Tax Payer's Name");
 
             DropBox.ItemsSource = dropdown;
 
@@ -158,12 +159,13 @@ namespace SearchEngine
                         var companies = new List<Company>();
                         for (int row = 2; row <= worksheet.Dimension.End.Row; row++) //START FROM ROW 2, ASSUMING ROW 1 IS THE HEADER
                         {
-                            var companyName = worksheet.Cells[row, 1].Value.ToString();
-                            var secNum = worksheet.Cells[row, 2].Value.ToString();
-                            var licenseNumber = worksheet.Cells[row, 3].Value.ToString();
-                            var dateRegistered = worksheet.Cells[row, 4].Value.ToString();
-                            var taxpayerName = worksheet.Cells[row, 5].Value.ToString();
-                            var violation = worksheet.Cells[row, 6].Value.ToString();
+                            //IF CELL IS NULL, ASSIGN NONE USING TERNARIY
+                            var companyName = worksheet.Cells[row, 1].Value?.ToString() ?? "NONE";
+                            var secNum = worksheet.Cells[row, 2].Value?.ToString() ?? "NONE";
+                            var licenseNumber = worksheet.Cells[row, 3].Value?.ToString() ?? "NONE";
+                            var dateRegistered = worksheet.Cells[row, 4].Value?.ToString() ?? "NONE";
+                            var taxpayerName = worksheet.Cells[row, 5].Value?.ToString() ?? "NONE";
+                            var violation = worksheet.Cells[row, 6].Value?.ToString() ?? "NONE";
 
                             companies.Add(new Company(companyName, secNum, licenseNumber, dateRegistered, taxpayerName, violation));
                         }
@@ -171,8 +173,16 @@ namespace SearchEngine
                         //PASS THE EXTRACTED DATA TO THE GLOBAL COMPANIES LIST
                         this.companies = companies;
 
+                        //MESSAGE UPLOAD SUCESSFULLY
+                        MessageBox.Show("Upload successful.", "Upload", MessageBoxButton.OK, MessageBoxImage.Information);
+
                         //DISPLAY ALL COMPANY NAMES IN SEARCH LISTBOX
                         SearchResultsListBox.ItemsSource = companies;
+
+                        //GET HOW MANT SEARCH FOUND AND CONVERT IT TO StrING
+                        SearchResultCount = companies.Count.ToString();
+
+                        ResultFound.Text = "RESULTS: " + SearchResultCount;
                     }
 
                     //SHOW ALL UPLOADED FILES IN UPLOADS LISTBOX
@@ -207,18 +217,24 @@ namespace SearchEngine
                     var companies = new List<Company>();
                     for (int row = 2; row <= worksheet.Dimension.End.Row; row++) //START FROM ROW 2, ASSUMING ROW 1 IS THE HEADER
                     {
-                        var companyName = worksheet.Cells[row, 1].Value.ToString();
-                        var secNum = worksheet.Cells[row, 2].Value.ToString();
-                        var licenseNumber = worksheet.Cells[row, 3].Value.ToString();
-                        var dateRegistered = worksheet.Cells[row, 4].Value.ToString();
-                        var taxpayerName = worksheet.Cells[row, 5].Value.ToString();
-                        var violation = worksheet.Cells[row, 6].Value.ToString();
+                        //IF CELL IS NULL, ASSIGN NONE USING TERNARIY
+                        var companyName = worksheet.Cells[row, 1].Value?.ToString() ?? "NONE";
+                        var secNum = worksheet.Cells[row, 2].Value?.ToString() ?? "NONE";
+                        var licenseNumber = worksheet.Cells[row, 3].Value?.ToString() ?? "NONE";
+                        var dateRegistered = worksheet.Cells[row, 4].Value?.ToString() ?? "NONE";
+                        var taxpayerName = worksheet.Cells[row, 5].Value?.ToString() ?? "NONE";
+                        var violation = worksheet.Cells[row, 6].Value?.ToString() ?? "NONE";
 
                         companies.Add(new Company(companyName, secNum, licenseNumber, dateRegistered, taxpayerName, violation));
                     }
                     this.companies = companies;
                     //DISPLAY THE EXTRACTED DATA IN SEARCHRESULTSLISTBOX
                     SearchResultsListBox.ItemsSource = companies;
+
+                    //GET HOW MANT SEARCH FOUND AND CONVERT IT TO StrING
+                    SearchResultCount = companies.Count.ToString();
+
+                    ResultFound.Text = "RESULTS: " + SearchResultCount;
                 }
             }
         }
