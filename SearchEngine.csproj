@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="assignment etl.png" />
+    <None Remove="bin %281%29.png" />
     <None Remove="bin.png" />
     <None Remove="dropdown.JPG" />
     <None Remove="icons8-upload-64.png" />
@@ -19,6 +20,7 @@
     <None Remove="images-removebg-preview.png" />
     <None Remove="letter-c-and-circles4612.logowik.com.png" />
     <None Remove="pngegg.PNG" />
+    <None Remove="printing.png" />
     <None Remove="shopee_8_8_sale_product_intro_3_b1dbd75738.png" />
     <None Remove="testLogo.png" />
   </ItemGroup>
@@ -39,6 +41,7 @@
 
   <ItemGroup>
     <Resource Include="assignment etl.png" />
+    <Resource Include="bin (1).png" />
     <Resource Include="bin.png" />
     <Resource Include="dropdown.JPG" />
     <Resource Include="icons8-upload-64.png" />
@@ -48,6 +51,7 @@
     <Resource Include="images-removebg-preview.png" />
     <Resource Include="letter-c-and-circles4612.logowik.com.png" />
     <Resource Include="pngegg.PNG" />
+    <Resource Include="printing.png" />
     <Resource Include="shopee_8_8_sale_product_intro_3_b1dbd75738.png" />
     <Resource Include="testLogo.png" />
   </ItemGroup>

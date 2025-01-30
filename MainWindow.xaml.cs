@@ -80,7 +80,7 @@ namespace SearchEngine
 
             if (companies == null || companies.Count == 0)
             {
-                MessageBox.Show("Please upload data set first.", "No Data Uploaded", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Please select or upload data set first.", "No Data Uploaded", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
 
@@ -348,13 +348,57 @@ namespace SearchEngine
                     //USE TO OPEN DOCUMENT TO EDIT AND ADD INFOS
                     doc.Open();
 
-                    //PRINT THE INFOS IN THE PDF
-                    doc.Add(new iTextSharp.text.Paragraph("Company Name: " + selectedCompany.CompanyName));
-                    doc.Add(new iTextSharp.text.Paragraph("SEC #: " + selectedCompany.SecNum));
-                    doc.Add(new iTextSharp.text.Paragraph("License Number: " + selectedCompany.LicenseNumber));
-                    doc.Add(new iTextSharp.text.Paragraph("Date Registered: " + selectedCompany.DateRegistered));
-                    doc.Add(new iTextSharp.text.Paragraph("Taxpayer Name: " + selectedCompany.TaxpayerName));
-                    doc.Add(new iTextSharp.text.Paragraph("Violations: " + selectedCompany.Violation));
+                    //PRINT THE INFOS IN THE PDF WITHOUT DESIGN
+
+                    //doc.Add(new iTextSharp.text.Paragraph("Company Name: " + selectedCompany.CompanyName));
+                    //doc.Add(new iTextSharp.text.Paragraph("SEC #: " + selectedCompany.SecNum));
+                    //doc.Add(new iTextSharp.text.Paragraph("License Number: " + selectedCompany.LicenseNumber));
+                    //doc.Add(new iTextSharp.text.Paragraph("Date Registered: " + selectedCompany.DateRegistered));
+                    //doc.Add(new iTextSharp.text.Paragraph("Taxpayer Name: " + selectedCompany.TaxpayerName));
+                    //doc.Add(new iTextSharp.text.Paragraph("Violations: " + selectedCompany.Violation));
+
+                    //PRINT THE INFOS IN THE PDF WITH DESIGN
+                    Font titleFont = FontFactory.GetFont("Arial", 16, Font.BOLD, BaseColor.BLACK);
+                    Font headerFont = FontFactory.GetFont("Arial", 20, Font.BOLD, BaseColor.BLACK);
+                    Font infoFont = FontFactory.GetFont("Arial", 13, Font.NORMAL, BaseColor.BLACK);
+
+                    doc.Add(new iTextSharp.text.Paragraph("Company Information", headerFont));
+
+                    Chunk companyNameChunk = new Chunk("Company Name: ", titleFont);
+                    Chunk companyNameValueChunk = new Chunk(selectedCompany.CompanyName, FontFactory.GetFont("Arial", 15, Font.NORMAL, BaseColor.BLUE));
+                    Phrase companyNamePhrase = new Phrase(companyNameChunk);
+                    companyNamePhrase.Add(companyNameValueChunk);
+                    doc.Add(new iTextSharp.text.Paragraph(companyNamePhrase));
+
+                    Chunk secNumChunk = new Chunk("SEC #: ", infoFont);
+                    Chunk secNumValueChunk = new Chunk(selectedCompany.SecNum, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
+                    Phrase secNumPhrase = new Phrase(secNumChunk);
+                    secNumPhrase.Add(secNumValueChunk);
+                    doc.Add(new iTextSharp.text.Paragraph(secNumPhrase));
+
+                    Chunk licenseNumberChunk = new Chunk("License Number: ", infoFont);
+                    Chunk licenseNumberValueChunk = new Chunk(selectedCompany.LicenseNumber, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
+                    Phrase licenseNumberPhrase = new Phrase(licenseNumberChunk);
+                    licenseNumberPhrase.Add(licenseNumberValueChunk);
+                    doc.Add(new iTextSharp.text.Paragraph(licenseNumberPhrase));
+
+                    Chunk dateRegisteredChunk = new Chunk("Date Registered: ", infoFont);
+                    Chunk dateRegisteredValueChunk = new Chunk(selectedCompany.DateRegistered, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
+                    Phrase dateRegisteredPhrase = new Phrase(dateRegisteredChunk);
+                    dateRegisteredPhrase.Add(dateRegisteredValueChunk);
+                    doc.Add(new iTextSharp.text.Paragraph(dateRegisteredPhrase));
+
+                    Chunk taxpayerNameChunk = new Chunk("Taxpayer Name: ", infoFont);
+                    Chunk taxpayerNameValueChunk = new Chunk(selectedCompany.TaxpayerName, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
+                    Phrase taxpayerNamePhrase = new Phrase(taxpayerNameChunk);
+                    taxpayerNamePhrase.Add(taxpayerNameValueChunk);
+                    doc.Add(new iTextSharp.text.Paragraph(taxpayerNamePhrase));
+
+                    Chunk violationsChunk = new Chunk("Violations: ", infoFont);
+                    Chunk violationsValueChunk = new Chunk(selectedCompany.Violation, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
+                    Phrase violationsPhrase = new Phrase(violationsChunk);
+                    violationsPhrase.Add(violationsValueChunk);
+                    doc.Add(new iTextSharp.text.Paragraph(violationsPhrase));
 
                     //USE TO CLOSE THE EDITING OF PDF
                     doc.Close();
@@ -362,6 +406,10 @@ namespace SearchEngine
                     //WHO MESSAGE BOX IF PDF IS CREATED
                     MessageBox.Show("PDF created successfully!", "PDF Creation", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Select Information First!", "PDF Creation", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

@@ -152,5 +152,7 @@
                 <ImageBrush ImageSource="/pngegg.PNG" />
             </Button.Background>
         </Button>
+        <Image Grid.Column="2" HorizontalAlignment="Left" Height="20" Margin="534,311,0,0" Grid.Row="3" VerticalAlignment="Top" Width="23" Source="/printing.png" />
+        <Image Grid.Column="3" HorizontalAlignment="Left" Height="19" Margin="32,311,0,0" Grid.Row="3" VerticalAlignment="Top" Width="26" Source="/bin (1).png" />
     </Grid>
 </Window>
