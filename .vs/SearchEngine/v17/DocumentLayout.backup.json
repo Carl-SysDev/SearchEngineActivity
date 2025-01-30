@@ -26,12 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -40,7 +36,7 @@
               "RelativeDocumentMoniker": "Classes\\Company.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Company.cs",
               "RelativeToolTip": "Classes\\Company.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAArwBkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAIA6wBkAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T04:56:01.682Z"
             },
@@ -52,10 +48,9 @@
               "RelativeDocumentMoniker": "Classes\\Search.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Search.cs",
               "RelativeToolTip": "Classes\\Search.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAADwvx4AAABlAAAAAAAAAA==",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvxYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T04:54:32.669Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T04:54:32.669Z"
             },
             {
               "$type": "Document",
@@ -63,8 +58,8 @@
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml",
-              "RelativeToolTip": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml*",
+              "RelativeToolTip": "MainWindow.xaml*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-22T00:59:53.216Z",
               "EditorCaption": ""
@@ -77,10 +72,9 @@
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAAAKIAAABMAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAQwCMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-22T00:59:52.593Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-22T00:59:52.593Z"
             }
           ]
         }

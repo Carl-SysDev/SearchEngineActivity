@@ -11,6 +11,16 @@ using System.IO;
 using OfficeOpenXml;
 using System.DirectoryServices;
 
+//USE THIS IMPORT TO SHOW PDF REPORT
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+
+//USE THIS TO LET USE USER CHOOSE DIRECTORY TO CREATE PDF
+using System.Windows.Forms;
+using System.Reflection.Metadata;
+using System.Windows.Documents;
+using System.Diagnostics;
+
 namespace SearchEngine
 {
     public partial class MainWindow : Window
@@ -32,10 +42,16 @@ namespace SearchEngine
             DropBox.ItemsSource = dropdown;
 
             //GET THE PATH OF UPLODED FILES
-            string uploadDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string uploadDirectory = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "uploads");
+
+            //CREATE FOLDER UPLOADS IF IT DOESN'T EXIST IN THE DIRECTORY
+            if (!System.IO.Directory.Exists(uploadDirectory))
+            {
+                System.IO.Directory.CreateDirectory(uploadDirectory);
+            }
 
             //GET THE EXCEL FILES
-            string[] excelFiles = System.IO.Directory.GetFiles(uploadDirectory, "*.xlsx", System.IO.SearchOption.TopDirectoryOnly);
+            string[] excelFiles = System.IO.Directory.GetFiles(uploadDirectory, "*.xlsx", System.IO.SearchOption.AllDirectories);
 
             //SHOWING THE ALL UPLOADED EXCEL FILES IN FILEUPLOADSLISTBOX
             foreach (string file in excelFiles)
@@ -140,7 +156,7 @@ namespace SearchEngine
                 string[] selectedFiles = dialog.FileNames;
 
                 // Get the directory path where the files are uploaded
-                string uploadDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                string uploadDirectory = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "uploads");
 
                 // Read the Excel files and extract data
                 foreach (string file in selectedFiles)
@@ -191,7 +207,7 @@ namespace SearchEngine
             }
         }
 
-        //DISPLAY THE SELECTED FILE'S DATA IN SEARCHRESULTSLISTBOX
+        //DISPLAY THE SELECTED FILE'S DATA IN SEARCHRESULTSLISTBOX COMNPANY NAMES
         private void FileUploads_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (FileUploads.SelectedItem != null)
@@ -199,8 +215,7 @@ namespace SearchEngine
                 string selectedFile = FileUploads.SelectedItem.ToString();
 
                 // Get the directory path where the files are uploaded
-                string uploadDirectory = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-
+                string uploadDirectory = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "uploads");
                 // Construct the full path of the selected file
                 string filePath = System.IO.Path.Combine(uploadDirectory, selectedFile);
 
@@ -211,7 +226,7 @@ namespace SearchEngine
                     ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
                     var workbook = package.Workbook;
-                    var worksheet = workbook.Worksheets["Sheet1"]; // Replace with the actual sheet name
+                    var worksheet = workbook.Worksheets["Sheet1"]; //CHANGE BASED ON THE NAME OF THE SHEET
 
                     //EXTRACT DATA FROM EXCEL
                     var companies = new List<Company>();
@@ -295,13 +310,89 @@ namespace SearchEngine
                 TaxPayerName.Text = selectedCompany.TaxpayerName;
                 Violations.Text = selectedCompany.Violation;
 
-                // Make the textboxes read-only
+                //MAKE THE INFO READ ONLY
                 CompanyName.IsReadOnly = true;
                 SecNum.IsReadOnly = true;
                 LicenseNumber.IsReadOnly = true;
                 DateRegistered.IsReadOnly = true;
                 TaxPayerName.IsReadOnly = true;
                 Violations.IsReadOnly = true;
+            }
+        }
+
+        private void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+            // GET THE SELECTED COMPANY
+            Company selectedCompany = (Company)SearchResultsListBox.SelectedItem;
+
+            if (selectedCompany != null)
+            {
+                //OPEN DIALOG TO LET USER CHOOSE FOLDER TO SAVE PDF
+                OpenFileDialog folderDialog = new OpenFileDialog();
+                folderDialog.CheckFileExists = false;
+                folderDialog.CheckPathExists = true;
+                folderDialog.ValidateNames = false;
+                folderDialog.FileName = "Select Folder";
+                folderDialog.Filter = "Folders|";
+                folderDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                if (folderDialog.ShowDialog() == true)
+                {
+                    string selectedDirectory = Path.GetDirectoryName(folderDialog.FileName);
+
+                    //CREATE THE PDF FILE IN SELECTED FOLDER
+                    string pdfFileName = Path.Combine(selectedDirectory, selectedCompany.CompanyName + " Information.pdf");
+                    iTextSharp.text.Document doc = new iTextSharp.text.Document();
+                    PdfWriter.GetInstance(doc, new FileStream(pdfFileName, FileMode.Create));
+
+                    //USE TO OPEN DOCUMENT TO EDIT AND ADD INFOS
+                    doc.Open();
+
+                    //PRINT THE INFOS IN THE PDF
+                    doc.Add(new iTextSharp.text.Paragraph("Company Name: " + selectedCompany.CompanyName));
+                    doc.Add(new iTextSharp.text.Paragraph("SEC #: " + selectedCompany.SecNum));
+                    doc.Add(new iTextSharp.text.Paragraph("License Number: " + selectedCompany.LicenseNumber));
+                    doc.Add(new iTextSharp.text.Paragraph("Date Registered: " + selectedCompany.DateRegistered));
+                    doc.Add(new iTextSharp.text.Paragraph("Taxpayer Name: " + selectedCompany.TaxpayerName));
+                    doc.Add(new iTextSharp.text.Paragraph("Violations: " + selectedCompany.Violation));
+
+                    //USE TO CLOSE THE EDITING OF PDF
+                    doc.Close();
+
+                    //WHO MESSAGE BOX IF PDF IS CREATED
+                    MessageBox.Show("PDF created successfully!", "PDF Creation", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (FileUploads.SelectedItem != null)
+            {
+                string selectedFile = FileUploads.SelectedItem.ToString();
+
+                //GET DIRECTORY OF UPLOADED FILES
+                string uploadDirectory = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "uploads");
+
+                //GETH THE FULL PATH OF SELECTED FILE
+                string filePath = System.IO.Path.Combine(uploadDirectory, selectedFile);
+
+                //DEELTE THE FILE
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+
+                    //REMOVE THE FILE FROM THE LIST BOX
+                    FileUploads.Items.Remove(selectedFile);
+
+                    MessageBox.Show("File deleted successfully!", "Delete File", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    SearchResultsListBox.ItemsSource = null;
+                }
+                else
+                {
+                    MessageBox.Show("File not found!", "Delete File", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
     }
