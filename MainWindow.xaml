@@ -28,7 +28,8 @@
             <RowDefinition Height="10" />
             <RowDefinition Height="75" />
             <RowDefinition Height="70" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="67*" />
+            <RowDefinition Height="56*" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
 
@@ -38,39 +39,34 @@
         <!-- COMPONENTS -->
 
         <!-- DROPDOWN -->
-        <ComboBox Name="DropBox" Grid.Column="1" HorizontalAlignment="Center" Margin="0,12,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Height="37" SelectedIndex="0" Background="Black" BorderBrush="#ED9455" />
+        <ComboBox Name="DropBox" Grid.Column="1" HorizontalAlignment="Center" Margin="0,19,0,0" Grid.Row="2" VerticalAlignment="Top" Width="120" Height="37" SelectedIndex="0" Background="Black" BorderBrush="#ED9455" />
         <!-- SEARCH -->
         <Border
-        BorderThickness="2"
-        CornerRadius="1"
-        Background="White"
-        Margin="0,10,0,0"
+       BorderThickness="1" CornerRadius="10" BorderBrush="#FFF87F07" Background="#FFFFB163"
         Grid.Column="2"
         Grid.Row="2"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Top">
+        VerticalAlignment="Top" Margin="0,18,0,0">
             <TextBox Name="SearchBox"
              TextWrapping="Wrap"
              Text="Search..."
              Foreground="DarkSlateGray"
 
              FontSize="25"
-             HorizontalAlignment="Stretch"
              VerticalAlignment="Center"
              Width="Auto"
              Height="37"
              GotFocus="SearchBox_GotFocus"
-             LostFocus="SearchBox_LostFocus" Background="#FFFFB163" BorderBrush="#FFF87F07" />
+             LostFocus="SearchBox_LostFocus" Background="#00000000" BorderBrush="#00000000" Margin="9,0,9,0" />
         </Border>
 
         <!-- SEARCH BUTTON -->
-        <Button Name="SearchButton" Grid.Column="3" Content="🔍 SEARCH" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="130" Height="50" Foreground="Black" FontWeight="Bold"  FontSize="15" Click="SearchButton_Click" BorderBrush="#00000000" Margin="0,5,0,0" Cursor="Hand">
+        <Button Name="SearchButton" Grid.Column="3" Content="🔍 SEARCH" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Top" Width="130" Height="50" Foreground="Black" FontWeight="Bold"  FontSize="15" Click="SearchButton_Click" BorderBrush="#00000000" Margin="0,13,0,0" Cursor="Hand">
             <Button.Background>
                 <ImageBrush ImageSource="/pngegg.PNG" />
             </Button.Background>
         </Button>
         <!-- HEADER -->
-        <TextBlock Name="CompanyHeader" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Text, ElementName=SearchBox}" VerticalAlignment="Center" Height="39" Width="Auto" FontSize="30" FontWeight="Bold" Foreground="Black" />
+        <TextBlock Name="CompanyHeader" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Text, ElementName=SearchBox}" VerticalAlignment="Center" Height="39" Width="Auto" FontSize="30" FontWeight="Bold" Foreground="Black" Margin="10,0,0,0" />
         <!-- UPLOAD -->
         <Button Name ="UploadButton" Grid.Column="3" Content="       UPLOAD" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" Width="125" Height="50" FontSize="15" FontWeight="Bold" Foreground="Black" Click="UploadButton_Click" Margin="10,0,0,0" BorderBrush="#00000000" Cursor="Hand">
 
@@ -80,19 +76,18 @@
         </Button>
 
         <!-- SEARCH RESULT-->
-        <ListBox Name="SearchResultsListBox" Grid.Row="3" Margin="0,28,492,10" SelectionChanged="SearchResultsListBox_SelectionChanged"  Grid.Column="1" BorderThickness="1,1,1,1" Background="#FFFFB163" BorderBrush="#FFF87F07" Grid.ColumnSpan="2">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding CompanyName}"  FontSize="15" />
-                        <!--<TextBlock Text="{Binding SecNum, StringFormat='SEC #: {0}'}" />
-                        <TextBlock Text="{Binding DateRegistered, StringFormat='Date Registered: {0}'}" />
-                        <TextBlock Text="{Binding LicenseNumber, StringFormat='License Number: {0}'}" />-->
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <TextBlock Name="NoResultTextBlock" Visibility="Collapsed" Grid.Column="1" Grid.Row="3" Margin="0,34,0,0" Text="No result found" />
+        <Border BorderThickness="1" CornerRadius="10" BorderBrush="#FFF87F07" Background="#FFFFB163" Grid.Column="2" Grid.Row="3" Grid.RowSpan="2">
+            <ListBox Name="SearchResultsListBox" Margin="9,38,9,9" SelectionChanged="SearchResultsListBox_SelectionChanged"  Grid.Column="1"  BorderThickness="0" BorderBrush="Transparent" Background="Transparent">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding CompanyName}"  FontSize="15" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+        <TextBlock Name="NoResultTextBlock" Visibility="Collapsed" Grid.Column="1" Grid.Row="3" Margin="0,34,0,0" Text="No result found" Grid.RowSpan="2" />
         <!--LOGO-->
         <Image Grid.Column="1" HorizontalAlignment="Center" Height="70" Margin="0,5,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="70" Source="/image-removebg-preview (2).png">
         </Image>
@@ -103,7 +98,7 @@
             </Image.OpacityMask>
         </Image>
         <!--RESULT Found-->
-        <TextBlock Name="ResultFound" Grid.Column="1" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULTS: " VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="169" Grid.ColumnSpan="2" />
+        <TextBlock Name="ResultFound" Grid.Column="2" HorizontalAlignment="Left" Margin="10,6,0,0" Grid.Row="3" TextWrapping="Wrap" Text="RESULTS: " VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="169" />
 
         <!--SINGLE COMPANT INFO-->
         <!--ADS INFO FREE SPACE POR FUTUTE UPDATE
@@ -114,7 +109,7 @@
         </Image>-->
 
         <!--Company INfo -->
-        <Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="269" Grid.Row="3" Stroke="#FFED9455" VerticalAlignment="Top" Width="471" StrokeThickness="5" Margin="178,28,0,0" />
+        <!--<Rectangle Grid.Column="2" HorizontalAlignment="Left" Height="269" Grid.Row="3" Stroke="#FFED9455" VerticalAlignment="Top" Width="471" StrokeThickness="5" Margin="178,28,0,0" />
 
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="198,51,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Company Name :" VerticalAlignment="Top" Height="23" Width="143" FontSize="17" FontWeight="Bold" />
         <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="268,99,0,0" Grid.Row="3" TextWrapping="Wrap" Text="   SEC # : " VerticalAlignment="Top" Height="24" Width="70"  FontSize="17" FontWeight="Bold" RenderTransformOrigin="0.227,0.668" />
@@ -128,31 +123,35 @@
         <TextBox x:Name="DateRegistered" Grid.Column="2" HorizontalAlignment="Left" Margin="346,174,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="26" FontSize="12" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
         <TextBox x:Name="TaxPayerName" Grid.Column="2" HorizontalAlignment="Left" Margin="346,217,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="58" FontSize="12" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
         <TextBox x:Name="Violations" Grid.Column="2" HorizontalAlignment="Left" Margin="490,128,0,0" Grid.Row="3" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="134" Height="147" FontSize="12" FontWeight="Bold" FontStyle="Italic" IsReadOnly="True" Background="#FFFFB163" BorderBrush="#FFF87F07" />
-
+        -->
         <!-- UPLOADS FILES-->
-        <ListBox Name="FileUploads" Grid.Column="2" Grid.Row="3" d:ItemsSource="{d:SampleData ItemCount=5}" VerticalAlignment="Top" Margin="654,28,1,0" BorderThickness="1,1,1,1" Background="#FFFFB163" BorderBrush="#FFF87F07" SelectionChanged="FileUploads_SelectionChanged" Grid.ColumnSpan="2" Height="269">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding}" FontSize="15" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <TextBlock Name="uploads" Grid.Column="2" HorizontalAlignment="Left" Margin="661,1,0,0" Grid.Row="3" TextWrapping="Wrap" Text="UPLOADS" VerticalAlignment="Top"  FontSize="20" FontWeight="Bold" Width="169" Grid.ColumnSpan="2" />
+        <Border BorderThickness="1" CornerRadius="10" BorderBrush="#FFF87F07" Background="#FFFFB163" Grid.Column="3" Grid.Row="3" Margin="17,0,0,55" Grid.RowSpan="2">
+            <ListBox Name="FileUploads"  d:ItemsSource="{d:SampleData ItemCount=5}" VerticalAlignment="Top" Margin="-1,28,1,0" BorderThickness="1,1,1,1"  SelectionChanged="FileUploads_SelectionChanged" Height="269" Grid.RowSpan="2" Background="Transparent" BorderBrush="Transparent">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding}" FontSize="15" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Border>
+
+        <TextBlock Name="uploads" Grid.Column="3" HorizontalAlignment="Left" Margin="39,6,0,0" Grid.Row="3" TextWrapping="Wrap" Text="UPLOADS" VerticalAlignment="Top"  FontSize="20" FontWeight="Bold" Width="101" />
         <!--BUTTON PRINT-->
-        <Button Name ="PrintButton" Grid.Column="2" Content="PRINT" HorizontalAlignment="Left" Margin="519,302,0,0" Grid.Row="3" VerticalAlignment="Top" Height="40" Width="130" FontWeight="Bold" Click="PrintButton_Click" FontSize="15" BorderBrush="#00000000">
+        <Button Name ="PrintButton" Grid.Column="1" Content="PRINT" HorizontalAlignment="Left" Margin="5,118,0,0" Grid.Row="4" VerticalAlignment="Top" Height="40" Width="130" FontWeight="Bold" Click="PrintButton_Click" FontSize="15" BorderBrush="#00000000">
             <Button.Background>
                 <ImageBrush ImageSource="/pngegg.PNG" />
             </Button.Background>
         </Button>
         <!-- BUTTON DELETE FOR SELECTED UPLOAD-->
-        <Button Name="DeleteButton" Grid.Column="3" Content="DELETE" HorizontalAlignment="Left" Margin="17,302,0,0" Grid.Row="3" VerticalAlignment="Top" Height="40" Width="130" Click="DeleteButton_Click" FontWeight="Bold" FontSize="15" BorderBrush="#00000000">
+        <Button Name="DeleteButton" Grid.Column="3" Content="DELETE" HorizontalAlignment="Left" Margin="17,118,0,0" Grid.Row="4" VerticalAlignment="Top" Height="40" Width="130" Click="DeleteButton_Click" FontWeight="Bold" FontSize="15" BorderBrush="#00000000">
             <Button.Background>
                 <ImageBrush ImageSource="/pngegg.PNG" />
             </Button.Background>
         </Button>
-        <Image Grid.Column="2" HorizontalAlignment="Left" Height="20" Margin="534,311,0,0" Grid.Row="3" VerticalAlignment="Top" Width="23" Source="/printing.png" />
-        <Image Grid.Column="3" HorizontalAlignment="Left" Height="19" Margin="32,311,0,0" Grid.Row="3" VerticalAlignment="Top" Width="26" Source="/bin (1).png" />
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="15,128,0,0" Grid.Row="4" VerticalAlignment="Top" Width="23" Source="/printing.png" />
+        <Image Grid.Column="3" HorizontalAlignment="Left" Height="19" Margin="32,126,0,0" Grid.Row="4" VerticalAlignment="Top" Width="26" Source="/bin (1).png" />
+        <TextBlock x:Name="companyheader" Grid.Column="2" HorizontalAlignment="Center" Margin="0,6,0,0" Grid.Row="3" TextWrapping="Wrap" Text="COMPANY INFORMATIONS" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Width="288" />
     </Grid>
 </Window>

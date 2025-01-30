@@ -137,7 +137,7 @@ namespace SearchEngine
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
                 textBox.Text = "Search...";
-                textBox.Foreground = Brushes.Gray; // Change text color to placeholder
+                textBox.Foreground = Brushes.Gray;
             }
         }
 
@@ -155,7 +155,6 @@ namespace SearchEngine
             {
                 string[] selectedFiles = dialog.FileNames;
 
-                // Get the directory path where the files are uploaded
                 string uploadDirectory = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "uploads");
 
                 // Read the Excel files and extract data
@@ -164,12 +163,12 @@ namespace SearchEngine
                     //COPY THE FILE OR UPLOAD THE FILE IN MY DIRECTORY
                     string fileName = System.IO.Path.GetFileName(file);
                     string destinationPath = System.IO.Path.Combine(uploadDirectory, fileName);
-                    System.IO.File.Copy(file, destinationPath, true); // overwrite if file already exists
+                    System.IO.File.Copy(file, destinationPath, true); //OVERWRITE FILE IF EXISTS
 
                     using (var package = new ExcelPackage(destinationPath))
                     {
                         var workbook = package.Workbook;
-                        var worksheet = workbook.Worksheets["Sheet1"]; // Replace with the actual sheet name
+                        var worksheet = workbook.Worksheets["Sheet1"];
 
                         //EXTRACT DATA FROM EXCEL
                         var companies = new List<Company>();
@@ -301,22 +300,24 @@ namespace SearchEngine
         {
             if (SearchResultsListBox.SelectedItem != null)
             {
-                Company selectedCompany = (Company)SearchResultsListBox.SelectedItem;
+                //Company selectedCompany = (Company)SearchResultsListBox.SelectedItem;
 
-                CompanyName.Text = selectedCompany.CompanyName;
-                SecNum.Text = selectedCompany.SecNum;
-                LicenseNumber.Text = selectedCompany.LicenseNumber;
-                DateRegistered.Text = selectedCompany.DateRegistered;
-                TaxPayerName.Text = selectedCompany.TaxpayerName;
-                Violations.Text = selectedCompany.Violation;
+                //CompanyName.Text = selectedCompany.CompanyName;
+                //SecNum.Text = selectedCompany.SecNum;
+                //LicenseNumber.Text = selectedCompany.LicenseNumber;
+                //DateRegistered.Text = selectedCompany.DateRegistered;
+                //TaxPayerName.Text = selectedCompany.TaxpayerName;
+                //Violations.Text = selectedCompany.Violation;
 
-                //MAKE THE INFO READ ONLY
-                CompanyName.IsReadOnly = true;
-                SecNum.IsReadOnly = true;
-                LicenseNumber.IsReadOnly = true;
-                DateRegistered.IsReadOnly = true;
-                TaxPayerName.IsReadOnly = true;
-                Violations.IsReadOnly = true;
+                ////MAKE THE INFO READ ONLY
+                //CompanyName.IsReadOnly = true;
+                //SecNum.IsReadOnly = true;
+                //LicenseNumber.IsReadOnly = true;
+                //DateRegistered.IsReadOnly = true;
+                //TaxPayerName.IsReadOnly = true;
+                //Violations.IsReadOnly = true;
+
+                MessageBox.Show("Selected Company: " + ((Company)SearchResultsListBox.SelectedItem).CompanyName);
             }
         }
 
