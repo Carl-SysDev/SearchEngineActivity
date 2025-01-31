@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\companydetailswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:companydetailswindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\companydetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:companydetailswindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\classes\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:classes\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\classes\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:classes\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|c:\\users\\csmadriaga\\source\\repos\\searchengine\\classes\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{46039B02-5BE9-4C1B-B4C4-7E65D2B68612}|SearchEngine.csproj|solutionrelative:classes\\search.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Company.cs",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Company.cs",
               "RelativeDocumentMoniker": "Classes\\Company.cs",
@@ -43,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Search.cs",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\Classes\\Search.cs",
               "RelativeDocumentMoniker": "Classes\\Search.cs",
@@ -56,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml",
               "RelativeDocumentMoniker": "MainWindow.xaml",
@@ -68,15 +76,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "CompanyDetailsWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\CompanyDetailsWindow.xaml",
+              "RelativeDocumentMoniker": "CompanyDetailsWindow.xaml",
+              "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\CompanyDetailsWindow.xaml",
+              "RelativeToolTip": "CompanyDetailsWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-30T15:11:50.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\MainWindow.xaml.cs",
               "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAADEBAAAAAAAAAAAiwD8BAABxAAAAAAAAAA==",
+              "ViewState": "AgIAAC4BAAAAAAAAAAAqwEwBAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T00:59:52.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CompanyDetailsWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\CompanyDetailsWindow.xaml.cs",
+              "RelativeDocumentMoniker": "CompanyDetailsWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\CompanyDetailsWindow.xaml.cs",
+              "RelativeToolTip": "CompanyDetailsWindow.xaml.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAUwDYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-30T15:13:21.148Z",
               "EditorCaption": ""
             }
           ]

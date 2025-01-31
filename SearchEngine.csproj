@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <None Remove="assignment etl.png" />
+    <None Remove="bg.jpg" />
     <None Remove="bin %281%29.png" />
     <None Remove="bin.png" />
     <None Remove="dropdown.JPG" />
@@ -36,11 +37,12 @@
 
   <ItemGroup>
     <PackageReference Include="EPPlus" Version="7.5.3" />
-    <PackageReference Include="iTextSharp" Version="5.5.13.4" />
+    <PackageReference Include="itext7" Version="7.1.15" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="assignment etl.png" />
+    <Resource Include="bg.jpg" />
     <Resource Include="bin (1).png" />
     <Resource Include="bin.png" />
     <Resource Include="dropdown.JPG" />

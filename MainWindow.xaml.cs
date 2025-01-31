@@ -11,10 +11,6 @@ using System.IO;
 using OfficeOpenXml;
 using System.DirectoryServices;
 
-//USE THIS IMPORT TO SHOW PDF REPORT
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-
 //USE THIS TO LET USE USER CHOOSE DIRECTORY TO CREATE PDF
 using System.Windows.Forms;
 using System.Reflection.Metadata;
@@ -317,100 +313,11 @@ namespace SearchEngine
                 //TaxPayerName.IsReadOnly = true;
                 //Violations.IsReadOnly = true;
 
-                MessageBox.Show("Selected Company: " + ((Company)SearchResultsListBox.SelectedItem).CompanyName);
-            }
-        }
+                Company selectedCompany = (Company)SearchResultsListBox.SelectedItem;
 
-        private void PrintButton_Click(object sender, RoutedEventArgs e)
-        {
-            // GET THE SELECTED COMPANY
-            Company selectedCompany = (Company)SearchResultsListBox.SelectedItem;
-
-            if (selectedCompany != null)
-            {
-                //OPEN DIALOG TO LET USER CHOOSE FOLDER TO SAVE PDF
-                OpenFileDialog folderDialog = new OpenFileDialog();
-                folderDialog.CheckFileExists = false;
-                folderDialog.CheckPathExists = true;
-                folderDialog.ValidateNames = false;
-                folderDialog.FileName = "Select Folder";
-                folderDialog.Filter = "Folders|";
-                folderDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-                if (folderDialog.ShowDialog() == true)
-                {
-                    string selectedDirectory = Path.GetDirectoryName(folderDialog.FileName);
-
-                    //CREATE THE PDF FILE IN SELECTED FOLDER
-                    string pdfFileName = Path.Combine(selectedDirectory, selectedCompany.CompanyName + " Information.pdf");
-                    iTextSharp.text.Document doc = new iTextSharp.text.Document();
-                    PdfWriter.GetInstance(doc, new FileStream(pdfFileName, FileMode.Create));
-
-                    //USE TO OPEN DOCUMENT TO EDIT AND ADD INFOS
-                    doc.Open();
-
-                    //PRINT THE INFOS IN THE PDF WITHOUT DESIGN
-
-                    //doc.Add(new iTextSharp.text.Paragraph("Company Name: " + selectedCompany.CompanyName));
-                    //doc.Add(new iTextSharp.text.Paragraph("SEC #: " + selectedCompany.SecNum));
-                    //doc.Add(new iTextSharp.text.Paragraph("License Number: " + selectedCompany.LicenseNumber));
-                    //doc.Add(new iTextSharp.text.Paragraph("Date Registered: " + selectedCompany.DateRegistered));
-                    //doc.Add(new iTextSharp.text.Paragraph("Taxpayer Name: " + selectedCompany.TaxpayerName));
-                    //doc.Add(new iTextSharp.text.Paragraph("Violations: " + selectedCompany.Violation));
-
-                    //PRINT THE INFOS IN THE PDF WITH DESIGN
-                    Font titleFont = FontFactory.GetFont("Arial", 16, Font.BOLD, BaseColor.BLACK);
-                    Font headerFont = FontFactory.GetFont("Arial", 20, Font.BOLD, BaseColor.BLACK);
-                    Font infoFont = FontFactory.GetFont("Arial", 13, Font.NORMAL, BaseColor.BLACK);
-
-                    doc.Add(new iTextSharp.text.Paragraph("Company Information", headerFont));
-
-                    Chunk companyNameChunk = new Chunk("Company Name: ", titleFont);
-                    Chunk companyNameValueChunk = new Chunk(selectedCompany.CompanyName, FontFactory.GetFont("Arial", 15, Font.NORMAL, BaseColor.BLUE));
-                    Phrase companyNamePhrase = new Phrase(companyNameChunk);
-                    companyNamePhrase.Add(companyNameValueChunk);
-                    doc.Add(new iTextSharp.text.Paragraph(companyNamePhrase));
-
-                    Chunk secNumChunk = new Chunk("SEC #: ", infoFont);
-                    Chunk secNumValueChunk = new Chunk(selectedCompany.SecNum, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
-                    Phrase secNumPhrase = new Phrase(secNumChunk);
-                    secNumPhrase.Add(secNumValueChunk);
-                    doc.Add(new iTextSharp.text.Paragraph(secNumPhrase));
-
-                    Chunk licenseNumberChunk = new Chunk("License Number: ", infoFont);
-                    Chunk licenseNumberValueChunk = new Chunk(selectedCompany.LicenseNumber, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
-                    Phrase licenseNumberPhrase = new Phrase(licenseNumberChunk);
-                    licenseNumberPhrase.Add(licenseNumberValueChunk);
-                    doc.Add(new iTextSharp.text.Paragraph(licenseNumberPhrase));
-
-                    Chunk dateRegisteredChunk = new Chunk("Date Registered: ", infoFont);
-                    Chunk dateRegisteredValueChunk = new Chunk(selectedCompany.DateRegistered, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
-                    Phrase dateRegisteredPhrase = new Phrase(dateRegisteredChunk);
-                    dateRegisteredPhrase.Add(dateRegisteredValueChunk);
-                    doc.Add(new iTextSharp.text.Paragraph(dateRegisteredPhrase));
-
-                    Chunk taxpayerNameChunk = new Chunk("Taxpayer Name: ", infoFont);
-                    Chunk taxpayerNameValueChunk = new Chunk(selectedCompany.TaxpayerName, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
-                    Phrase taxpayerNamePhrase = new Phrase(taxpayerNameChunk);
-                    taxpayerNamePhrase.Add(taxpayerNameValueChunk);
-                    doc.Add(new iTextSharp.text.Paragraph(taxpayerNamePhrase));
-
-                    Chunk violationsChunk = new Chunk("Violations: ", infoFont);
-                    Chunk violationsValueChunk = new Chunk(selectedCompany.Violation, FontFactory.GetFont("Arial", 12, Font.NORMAL, BaseColor.BLUE));
-                    Phrase violationsPhrase = new Phrase(violationsChunk);
-                    violationsPhrase.Add(violationsValueChunk);
-                    doc.Add(new iTextSharp.text.Paragraph(violationsPhrase));
-
-                    //USE TO CLOSE THE EDITING OF PDF
-                    doc.Close();
-
-                    //WHO MESSAGE BOX IF PDF IS CREATED
-                    MessageBox.Show("PDF created successfully!", "PDF Creation", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Select Information First!", "PDF Creation", MessageBoxButton.OK, MessageBoxImage.Information);
+                // Create a new window to display the company details
+                CompanyDetailsWindow companyDetailsWindow = new CompanyDetailsWindow(selectedCompany);
+                companyDetailsWindow.ShowDialog();
             }
         }
 
@@ -443,6 +350,22 @@ namespace SearchEngine
                     MessageBox.Show("File not found!", "Delete File", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show("Are you sure you want to exit?", "Confirm Exit", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+        }
+
+        private void clearSearch_Click(object sender, RoutedEventArgs e)
+        {
+            SearchBox.Clear();
+            SearchBox.Text = "Search...";
+            SearchBox.Foreground = Brushes.DarkSlateGray;
         }
     }
 }
