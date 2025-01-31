@@ -45,12 +45,16 @@ namespace SearchEngine
                         PdfDocument pdfDoc = new PdfDocument(writer);
                         Document doc = new Document(pdfDoc);
 
+                        //CUSTOM COLORS
+                        Color myColor = WebColors.GetRGBColor("#6CB4EE");
+                        Color myColor2 = WebColors.GetRGBColor("#f2f0ef");
+
                         // CREATE A HEADER WITH BORDER AND DESIGN
                         Paragraph header = new Paragraph("COMPANY INFORMATION")
                             .SetFontSize(25)
-                            .SetFontColor(ColorConstants.BLACK)
+                            .SetFontColor(myColor)
                             .SetBold()
-                            .SetBackgroundColor(ColorConstants.LIGHT_GRAY).SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
+                            .SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER);
 
                         doc.Add(header);
 
@@ -60,12 +64,18 @@ namespace SearchEngine
                             .SetMarginBottom(5));
 
                         // PRINT THE INFOS IN THE PDF WITH DESIGN
-                        doc.Add(new Paragraph($"Company Name: {company.CompanyName}").SetFontSize(15));
-                        doc.Add(new Paragraph($"SEC #: {company.SecNum}").SetFontSize(15));
-                        doc.Add(new Paragraph($"License Number: {company.LicenseNumber}").SetFontSize(15));
-                        doc.Add(new Paragraph($"Date Registered: {company.DateRegistered}").SetFontSize(15));
-                        doc.Add(new Paragraph($"Taxpayer Name: {company.TaxpayerName}").SetFontSize(15));
-                        doc.Add(new Paragraph($"Violation: {company.Violation}").SetFontSize(15));
+                        doc.Add(new Paragraph($"   COMPANY NAME").SetFontSize(15).SetBackgroundColor(myColor).SetFontColor(ColorConstants.WHITE).SetBold());
+                        doc.Add(new Paragraph($"   {company.CompanyName}").SetFontSize(10).SetBackgroundColor(myColor2));
+                        doc.Add(new Paragraph($"   SEC NUMBER").SetFontSize(15).SetBackgroundColor(myColor).SetFontColor(ColorConstants.WHITE).SetBold());
+                        doc.Add(new Paragraph($"   {company.SecNum}").SetFontSize(10).SetBackgroundColor(myColor2));
+                        doc.Add(new Paragraph($"   LICENSE NUMBER").SetFontSize(15).SetBackgroundColor(myColor).SetFontColor(ColorConstants.WHITE).SetBold());
+                        doc.Add(new Paragraph($"   {company.LicenseNumber}").SetFontSize(10).SetBackgroundColor(myColor2));
+                        doc.Add(new Paragraph($"   DATE REGISTERED").SetFontSize(15).SetBackgroundColor(myColor).SetFontColor(ColorConstants.WHITE).SetBold());
+                        doc.Add(new Paragraph($"   {company.DateRegistered}").SetFontSize(10).SetBackgroundColor(myColor2));
+                        doc.Add(new Paragraph($"   TAX PAYER'S NAME").SetFontSize(15).SetBackgroundColor(myColor).SetFontColor(ColorConstants.WHITE).SetBold());
+                        doc.Add(new Paragraph($"   {company.TaxpayerName}").SetFontSize(10).SetBackgroundColor(myColor2));
+                        doc.Add(new Paragraph($"   VIOLATIONS").SetFontSize(15).SetBackgroundColor(myColor).SetFontColor(ColorConstants.WHITE).SetBold());
+                        doc.Add(new Paragraph($"   {company.Violation}").SetFontSize(10).SetBackgroundColor(myColor2));
                         // ADD A LINE TO SEPARATE THE HEADER FROM THE CONTENT
                         doc.Add(new LineSeparator(new SolidLine())
                             .SetMarginTop(5)
