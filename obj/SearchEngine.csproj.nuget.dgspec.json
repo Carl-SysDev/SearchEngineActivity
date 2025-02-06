@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\SearchEngine.csproj": {}
+    "C:\\Users\\csmadriaga\\Downloads\\SearchEngineActivity-master (1)\\SearchEngineActivity-master\\SearchEngine.csproj": {}
   },
   "projects": {
-    "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\SearchEngine.csproj": {
+    "C:\\Users\\csmadriaga\\Downloads\\SearchEngineActivity-master (1)\\SearchEngineActivity-master\\SearchEngine.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\SearchEngine.csproj",
+        "projectUniqueName": "C:\\Users\\csmadriaga\\Downloads\\SearchEngineActivity-master (1)\\SearchEngineActivity-master\\SearchEngine.csproj",
         "projectName": "SearchEngine",
-        "projectPath": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\SearchEngine.csproj",
+        "projectPath": "C:\\Users\\csmadriaga\\Downloads\\SearchEngineActivity-master (1)\\SearchEngineActivity-master\\SearchEngine.csproj",
         "packagesPath": "C:\\Users\\csmadriaga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\obj\\",
+        "outputPath": "C:\\Users\\csmadriaga\\Downloads\\SearchEngineActivity-master (1)\\SearchEngineActivity-master\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

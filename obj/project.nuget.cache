@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BNfwFgRnE+I=",
+  "dgSpecHash": "7722x2uIWaA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\csmadriaga\\source\\repos\\SearchEngine\\SearchEngine.csproj",
+  "projectFilePath": "C:\\Users\\csmadriaga\\Downloads\\SearchEngineActivity-master (1)\\SearchEngineActivity-master\\SearchEngine.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\csmadriaga\\.nuget\\packages\\common.logging\\3.4.1\\common.logging.3.4.1.nupkg.sha512",
     "C:\\Users\\csmadriaga\\.nuget\\packages\\common.logging.core\\3.4.1\\common.logging.core.3.4.1.nupkg.sha512",

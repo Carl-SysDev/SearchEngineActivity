@@ -81,7 +81,7 @@ namespace SearchEngine
             }
 
             //UPDATE VALUE OF SEARCH BASED ON HEADER
-            CompanyHeader.Text = "SEARCH: " + searchText;
+            //CompanyHeader.Text = "SEARCH: " + searchText;
 
             //INSTANTIATE THE SEARCH CLASS
             Search search = new Search(searchType, searchText);
@@ -156,15 +156,36 @@ namespace SearchEngine
                 // Read the Excel files and extract data
                 foreach (string file in selectedFiles)
                 {
+                    using (var package = new ExcelPackage(file))
+                    {
+                        var workbook = package.Workbook;
+                        var worksheet = workbook.Worksheets["CompanyData"];
+
+                        //IF EXCEL DONT HAVE A WORKSHEET NAMED CompanyData
+                        if (worksheet == null)
+                        {
+                            MessageBox.Show("Please follow the worksheet format. rename it to CompanyData", "Invalid Worksheet", MessageBoxButton.OK, MessageBoxImage.Error);
+                            continue;
+                        }
+
+                        //CHECK IF THE WORKSHEET HAS LESS OR MORE THAN 6 COLUMNS
+                        if (worksheet.Dimension.End.Column > 6)
+                        {
+                            MessageBox.Show("Please Upload Worksheet with this Column format:\nCompanyName|SecNum|LicenseNumber|DateRegistered|TaxpayerName|Violation", "Invalid Worksheet Format", MessageBoxButton.OK, MessageBoxImage.Error);
+                            continue;
+                        }
+                    }
+
                     //COPY THE FILE OR UPLOAD THE FILE IN MY DIRECTORY
                     string fileName = System.IO.Path.GetFileName(file);
                     string destinationPath = System.IO.Path.Combine(uploadDirectory, fileName);
+
                     System.IO.File.Copy(file, destinationPath, true); //OVERWRITE FILE IF EXISTS
 
                     using (var package = new ExcelPackage(destinationPath))
                     {
                         var workbook = package.Workbook;
-                        var worksheet = workbook.Worksheets["Sheet1"];
+                        var worksheet = workbook.Worksheets["CompanyData"];
 
                         //EXTRACT DATA FROM EXCEL
                         var companies = new List<Company>();
@@ -221,7 +242,7 @@ namespace SearchEngine
                     ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
                     var workbook = package.Workbook;
-                    var worksheet = workbook.Worksheets["Sheet1"]; //CHANGE BASED ON THE NAME OF THE SHEET
+                    var worksheet = workbook.Worksheets["CompanyData"]; //CHANGE BASED ON THE NAME OF THE SHEET
 
                     //EXTRACT DATA FROM EXCEL
                     var companies = new List<Company>();
